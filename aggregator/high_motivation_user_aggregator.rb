@@ -9,7 +9,21 @@ class HighMotivationUserAggregator
 
   # 実装してください
   def exec
-    
+    times_post = @channel_names.map do |channel_name|
+      #jsonファイルを読み込みんで変数に代入
+      channel = load(channel_name)
+      #jsonファイルの変数"messages"を呼び出し変数"message"に代入
+      message = channel["messages"].map(&:reactions)
+      #変数"message"の要素数を調べる
+      message_count = message.length
+      #出力するためのハッシュを作成
+      {
+        channel_name: channel_name,
+        message_count: message_count
+      }
+    end
+    #変数execの配列を多い順に並べる
+      times_post.max_by(3) {|x| x[:message_count]}
   end
 
   def load(channel_name)
