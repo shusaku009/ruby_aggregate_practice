@@ -7,14 +7,17 @@ class KindUserAggregator
     @channel_names = channel_names
   end
 
-  # 実装してください
   def exec
-    
+    times_reactions = @channel_names.map do |channel_name|
+      #jsonファイルを読み込みんで変数に代入
+      channel = load(channel_name)
+      #jsonファイルのキー"messages"を呼び出し変数"reactions"に代入
+      reactions = channel[:messages][:reactions]
+    end
   end
 
   def load(channel_name)
-    dir = File.expand_path("../data/#{channel_name}", File.dirname(__FILE__))
-    file = File.open(dir)
+    file = File.open(channel_name)
     JSON.load(file)
   end
 end

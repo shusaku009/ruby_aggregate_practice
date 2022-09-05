@@ -5,9 +5,9 @@ require_relative './aggregator/poupular_message_aggregator'
 # 実際はファイル名ですが便宜上チャンネル名という変数名とする
 channel_names = ["times_makotokonishi.json", "times_gen.json", "times_taishiro.json", "times_miketa.json", "times_halki.json", "sparta_course.json"]
 
-# 一番発信数が多いチャンネル ベスト3
+#一番発信数が多いチャンネル ベスト3
 # @param  ["times_makotokonishi.json", "times_gen.json", "times_taishiro.json", "times_miketa.json", "times_halki.json", "sparta_course.json"]
-# @return [{:channel_name=>"●●●.json", :message_count=>●●●}, {:channel_name=>"●●●.json", :message_count=>●●●}, {:channel_name=>"●●●.json", :message_count=>●●●}]]
+# @return [{:channel_name=>"●●●.json", :message_count=>●●●}, {:channel_name=>"●●●.json", :message_count=>●●●}, {:channel_name=>"●●●.json", :message_count=>●●●}]
 p HighMotivationUserAggregator.new(channel_names).exec
 
 # 一番スタンプを押してるユーザー

@@ -13,7 +13,7 @@ class HighMotivationUserAggregator
       #jsonファイルを読み込みんで変数に代入
       channel = load(channel_name)
       #jsonファイルの変数"messages"を呼び出し変数"message"に代入
-      message = channel["messages"].map(&:reactions)
+      message = channel["messages"]
       #変数"message"の要素数を調べる
       message_count = message.length
       #出力するためのハッシュを作成
